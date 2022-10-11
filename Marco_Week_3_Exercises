@@ -1,0 +1,146 @@
+#Exercise 1 - eigene Lösung (without nested for)
+
+liste99 = range(0, 10)
+
+for i in liste99:
+        
+    if i <= 5:
+        print(liste99[i] * '* ')
+        
+    else:
+        print(liste99[10-i] * '* ')
+        
+#Exercise 1 - Lösung von Philipp adaptiert
+
+max_width = 5
+width = 0
+grow = True
+
+for i in range (0,2):
+    for j in range(0, max_width):
+        if grow == True:
+            width += 1
+        else:
+            width -= 1
+        print(width * '* ')
+        
+    if width == max_width:
+        grow = False 
+#####################################################
+
+#Exercise 2 - eigene Lösung inkl. input()
+
+digits = 0
+letters = 0
+other = 0
+
+
+a = input('Enter Text here: ')
+a2 = list(a)
+
+for i in range(0, len(a2)):
+    
+    if a2[i].isdigit() == True:
+        digits += 1
+        
+    elif a2[i].isalpha() == True:
+        letters += 1
+        
+    else:
+        other += 1
+
+print('Letters: ' + str(letters))        
+print('Digits: ' + str(digits))
+print('Other: ' + str(other))
+
+#####################################################
+
+#Exercise 3
+
+even = 0
+odd = 0
+
+numbers = (11, 12, 13, 14, 15, 16, 17, 18, 19)
+
+for i in range(0,len(numbers)):
+    if numbers[i]%2 == 0:
+        even += 1
+    else:
+        odd += 1
+
+print('Number of even numbers: ' + str(even))
+print('Number of odd numbers: ' + str(odd))
+
+#####################################################
+
+#Exercise 5 - Eigene Lösung (not a good solution)
+
+result = []
+
+for i in list(range(int(input('Untere Greze: ')),int(input('Obere Grenze: ')))):
+    if int(list(str(i))[0]) % 2 != 0:       #ursprüngliche Lösung: if i > 299 and i < 400:
+        continue
+        
+    elif i % 2 == 0:
+
+        result.append(i)
+
+print(result)
+
+#####################################################
+
+#Exercise 6 - eigene Lösung
+
+from random import randrange, uniform
+to_be_guessed = randrange(0,100)
+print(to_be_guessed)
+
+Versuch = 0
+
+for i in range(0,4):
+
+    my_guess = int(input('my guess: '))
+    
+    Versuch += 1
+    
+    if Versuch < 4:
+
+        if my_guess != to_be_guessed:
+            if my_guess > to_be_guessed:
+                print('to big')
+        
+            elif my_guess < to_be_guessed:
+                print('to small')
+        
+            else:
+                print('wrong input')
+        elif  my_guess == to_be_guessed:
+            print('well guessed')
+            break
+            
+    else:
+        print('You lose!')
+        
+#####################################################
+
+
+#Exercise 7 - eigne Lösung
+
+hight = int(input('Enter hight here: '))
+
+if hight < 5:
+    width_trunk = 1
+    
+else:
+    width_trunk = 2
+
+
+for i in range(0,hight+1):
+    print((hight-i)*' ' + (2*i-1) * 'x')
+    
+if width_trunk == 1:
+    print((hight-1) * ' ' + 'x')
+    print((hight-1) * ' ' + 'x')
+else:
+    print((hight-2) * ' ' + 'xxx')
+    print((hight-2) * ' ' + 'xxx')
